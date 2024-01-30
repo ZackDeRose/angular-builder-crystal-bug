@@ -1,0 +1,78 @@
+{
+  "name": "angular-builder-crystal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "angular-builder-crystal",
+  "sourceRoot": "apps/angular-builder-crystal/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angular-builder-crystal",
+        "index": "apps/angular-builder-crystal/src/index.html",
+        "browser": "apps/angular-builder-crystal/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/angular-builder-crystal/tsconfig.app.json",
+        "assets": [
+          "apps/angular-builder-crystal/src/favicon.ico",
+          "apps/angular-builder-crystal/src/assets"
+        ],
+        "styles": ["apps/angular-builder-crystal/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "angular-builder-crystal:build:production"
+        },
+        "development": {
+          "buildTarget": "angular-builder-crystal:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "angular-builder-crystal:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/angular-builder-crystal/jest.config.ts"
+      }
+    }
+  }
+}
