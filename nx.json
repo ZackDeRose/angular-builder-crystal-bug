@@ -59,5 +59,6 @@
       "unitTestRunner": "jest"
     }
   },
-  "nxCloudAccessToken": "Yzk0ZTY0N2YtNGI1OC00NWE1LTk3YTktNmUyY2E0MDZjYjRlfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "Yzk0ZTY0N2YtNGI1OC00NWE1LTk3YTktNmUyY2E0MDZjYjRlfHJlYWQtd3JpdGU=",
+  "plugins": ["./create-node.ts"]
 }
